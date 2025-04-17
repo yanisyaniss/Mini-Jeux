@@ -1,89 +1,26 @@
-.home-container {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
   min-height: 100vh;
-  background-color: #121212;
-  color: #e0e0e0;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #f3f4f6;
 }
 
-.page-title {
-  font-size: 2.75rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: #ffffff;
-}
-
-.games-grid {
-  display: grid;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 640px) {
-  .games-grid {
-    grid-template-columns: repeat(2, 1fr);
+@layer components {
+  .game-card {
+    @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer;
   }
-}
-
-@media (min-width: 1024px) {
-  .games-grid {
-    grid-template-columns: repeat(3, 1fr);
+  
+  .btn-primary {
+    @apply bg-game-primary text-white px-6 py-2 rounded-lg hover:bg-game-secondary transition-colors duration-300;
   }
-}
-
-.game-card {
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.game-card:hover {
-  background-color: #2a2a2a;
-  transform: translateY(-4px);
-}
-
-.game-emoji {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-}
-
-.game-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.game-description {
-  font-size: 1rem;
-  color: #a0a0a0;
-  text-align: center;
-  line-height: 1.4;
-}
-
-.btn {
-  background-color: #2979ff;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.btn:hover {
-  background-color: #1155cc;
-  transform: translateY(-2px);
 }
