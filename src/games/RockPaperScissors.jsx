@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import "./RockPaperScissors.css"; 
 
 const options = ["Pierre", "Papier", "Ciseaux"];
 
 const getResult = (player, bot) => {
-  if (player == bot) return "Égalité !";
+  if (player === bot) return "Égalité !";
   if (
-    (player == "Pierre" && bot == "Ciseaux") ||
-    (player == "Papier" && bot == "Pierre") ||
-    (player == "Ciseaux" && bot == "Papier")
+    (player === "Pierre" && bot === "Ciseaux") ||
+    (player === "Papier" && bot === "Pierre") ||
+    (player === "Ciseaux" && bot === "Papier")
   ) {
     return "Tu gagnes 🎉";
   }
@@ -27,24 +28,22 @@ const RockPaperScissors = () => {
   };
 
   return (
-    <div className="p-4 text-center">
-      <h1 className="text-2xl font-bold mb-4">Pierre-Papier-Ciseaux</h1>
-      <div className="flex justify-center gap-4 mb-6">
+    <div className="rps-container">
+      <h1 className="rps-title">✊✋✌️ Pierre-Papier-Ciseaux</h1>
+
+      <div className="rps-buttons">
         {options.map((opt) => (
-          <button
-            key={opt}
-            onClick={() => play(opt)}
-            className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-700 transition"
-          >
+          <button key={opt} onClick={() => play(opt)} className="rps-button">
             {opt}
           </button>
         ))}
       </div>
+
       {playerChoice && (
-        <div className="text-lg">
-          <p>Tu as choisi : <strong>{playerChoice}</strong></p>
-          <p>L'ordi a choisi : <strong>{botChoice}</strong></p>
-          <p className="mt-2 font-semibold">{result}</p>
+        <div className="rps-result-box">
+          <p><strong>Tu as choisi :</strong> {playerChoice}</p>
+          <p><strong>L'ordi a choisi :</strong> {botChoice}</p>
+          <p className="rps-result">{result}</p>
         </div>
       )}
     </div>
