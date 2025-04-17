@@ -1,54 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../index.css"; 
+import { Link } from 'react-router-dom';
 
 const games = [
   {
-    title: "Tic-Tac-Toe",
-    path: "/tic-tac-toe",
-    description: "Aligne 3 symboles pour gagner !",
-    emoji: "❌⭕",
+    id: 'tictactoe',
+    title: 'Morpion',
+    description: 'Le classique jeu du morpion pour 2 joueurs',
+    path: '/tictactoe',
   },
   {
-    title: "Pierre-Papier-Ciseaux",
-    path: "/rock-paper-scissors",
-    description: "Défie moi au classique duel.",
-    emoji: "✊✋✌️",
+    id: 'memory',
+    title: 'Memory',
+    description: 'Testez votre mémoire en trouvant les paires',
+    path: '/memory',
   },
   {
-    title: "Démineur",
-    path: "/mines",
-    description: "Évite les mines et découvre le terrain.",
-    emoji: "💣",
+    id: 'snake',
+    title: 'Snake',
+    description: 'Le célèbre jeu du serpent avec obstacles et bonus',
+    path: '/snake',
+  },
+  {
+    id: 'tetris',
+    title: 'Tetris',
+    description: 'Le jeu de puzzle classique avec des tetrominos',
+    path: '/tetris',
+  },
+  {
+    id: 'pong',
+    title: 'Pong',
+    description: 'Le premier jeu vidéo de l\'histoire',
+    path: '/pong',
   },
 ];
 
-const Home = () => {
+function Home() {
   return (
-    <div className="home-container">
-      <h1 className="page-title">
-        🎮 GAME-HUB
+    <div className="max-w-4xl mx-auto">
+      <h1 className="text-4xl font-bold text-center mb-8">
+        Game-Hub - Mini-Jeux
       </h1>
-
-      <div className="games-grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {games.map((game) => (
-          <Link
-            key={game.title}
-            to={game.path}
-            className="game-card"
-          >
-            <div className="game-emoji">{game.emoji}</div>
-            <h2 className="game-title">
-              {game.title}
-            </h2>
-            <p className="game-description">
-              {game.description}
-            </p>
+          <Link key={game.id} to={game.path}>
+            <div className="game-card">
+              <h2 className="text-xl font-semibold mb-2">{game.title}</h2>
+              <p className="text-gray-600">{game.description}</p>
+            </div>
           </Link>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default Home;
